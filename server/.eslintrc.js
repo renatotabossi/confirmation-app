@@ -10,6 +10,7 @@ module.exports = {
         "plugin:@typescript-eslint/recommended",
         "prettier",
         "standard-with-typescript",
+        'plugin:@typescript-eslint/recommended-requiring-type-checking'
     ],
     globals: {
         Atomics: "readonly",
@@ -18,9 +19,20 @@ module.exports = {
     parserOptions: {
         ecmaVersion: "latest",
         sourceType: "module",
+        tsconfigRootDir: __dirname,
         project: "./tsconfig.json",
     },
     rules: {
         "dot-notation": 0,
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+              "js": "never",
+              "jsx": "never",
+              "ts": "never",
+              "tsx": "never"
+            }
+         ]
     },
 };
